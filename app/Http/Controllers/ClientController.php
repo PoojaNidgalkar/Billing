@@ -51,7 +51,9 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        // dd($request->all());
+        $Client=Client::create($request->all());
+        return redirect()->route('clients.index');
     }
 
     /**

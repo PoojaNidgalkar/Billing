@@ -41,6 +41,7 @@ class ClientController extends Controller
         // dd($request->all());
         $Client=Client::create($request->all());
         return redirect()->route('clients.index');
+        
     }
 
     /**
@@ -49,11 +50,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        // dd($request->all());
-        $Client=Client::create($request->all());
-        return redirect()->route('clients.index');
+        return view('show')->with(compact('client'));
     }
 
     /**
@@ -62,10 +61,12 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        //
+        return view('editt')->with(compact('client'));
     }
+
+    
 
     /**
      * Update the specified resource in storage.
@@ -74,10 +75,23 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Client $client)
     {
-        //
+        //Validate
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'contact' => 'required',
+        ]);
+        
+        $client->name = $request->name;
+        $client->address= $request->address;
+        $client->contact = $request->contact;
+        $client->save();
+        $request->session()->flash('message', 'Successfully modified the client!');
+        return redirect('clients');
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -87,6 +101,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = Client::find($id);
+        $client->delete();
+  
+        return redirect('/clients');
     }
 }

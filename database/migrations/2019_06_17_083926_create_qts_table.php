@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuotelistTable extends Migration
+class CreateQtsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,17 @@ class CreateQuotelistTable extends Migration
      */
     public function up()
     {
-        Schema::create('quotelist', function (Blueprint $table) {
+        Schema::create('qts', function (Blueprint $table) {
+            
             $table->bigIncrements('Qid');
-            $table->string('name');
-            $table->bigInteger('grand total');
-            $table->unsignedBigInteger('Cid');
-            $table->foreign('Cid')->references('id')->on('clients');
+            $table->string('Item_name',255);
+            $table->bigInteger('Qty');
+            $table->bigInteger('Price');
+            $table->bigInteger('Total');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('Cid')->on('client');
             $table->timestamps();
+
         });
     }
 
@@ -30,6 +34,6 @@ class CreateQuotelistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quotelist');
+        Schema::dropIfExists('qts');
     }
 }

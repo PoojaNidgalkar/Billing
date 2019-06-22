@@ -33,5 +33,11 @@ class HomeController extends Controller
     {
         return view('client');
     }
+    public function Qtcreate(Request $request)
+    {
+        return view('Qtcreate');
+    }
+
+    
    
 }

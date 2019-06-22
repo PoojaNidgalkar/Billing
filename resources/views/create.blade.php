@@ -22,28 +22,30 @@
 	   <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
 	  <div class="alert alert-danger hide"></div>
       
+      
       <div class="form-group">
-        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" 
+        <input type="text" class="form-control" name="name" value="{{ old('name') }}" 
         placeholder="Name"/>
 		@if ($errors->has('name'))
 		<span class="alert-danger">dssssss</span>
 		@endif
       </div>
       <br>
+      
 	  <div class="form-group">
-      <input type="text" class="form-control" id="name" name="address" 
+      <input type="text" class="form-control" name="address" 
         placeholder="Address"/>
       </div>
       <br>
-	  <div class="form-group">
-       
-        <input type="" class="form-control" name="contact" id="uname1" 
+	  
+    <div class="form-group">
+       <input type="" class="form-control" name="contact" 
          placeholder="Contact">
     </textarea>               
       </div>
       
       <br>
-      <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">
+      <button type="submit" class="btn btn-primary pull-right">
           Submit Clients</button>
 
 	  </div>

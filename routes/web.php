@@ -36,9 +36,15 @@ Route::get('/cash', 'HomeController@cash');
 Route::get('/debitcard', 'HomeController@debitcard');
 Route::get('/creditcard', 'HomeController@creditcard');
 Route::get('/welcome', 'HomeController@welcome');
+
 Route::resource('clients', 'ClientController');
+Route::post('views/editt','ClientController@editt');
 
+Route::resource('quotes', 'QtController');
 
+Route::get('quotes', function(){
+    return view('quotes');
+});
 
 
 

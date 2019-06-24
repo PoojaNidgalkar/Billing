@@ -31,7 +31,7 @@
 
         <tr>
             <td>{{ $quo->Qid}}</td>
-            <td>{{ $quo->Item_name }}</td>
+            <td>{{ $quo->Item name }}</td>
             <td>{{ $quo->total }}</td>
             
             <td><a href="{{route('quotes.show', $quo)}}" class="btn">Show</a></td>

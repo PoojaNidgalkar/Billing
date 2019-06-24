@@ -31,7 +31,7 @@
 
         <tr>
             <td>{{ $quo->Qid}}</td>
-            <td>{{ $quo->Item name }}</td>
+            <td>{{ $quo->Itemname }}</td>
             <td>{{ $quo->total }}</td>
             
             <td><a href="{{route('quotes.show', $quo)}}" class="btn">Show</a></td>
@@ -45,7 +45,7 @@
             </td>
           </form>
         </table>
-     
+     @endforeach
     </body>
     </html>
 

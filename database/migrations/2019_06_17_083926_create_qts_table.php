@@ -16,7 +16,7 @@ class CreateQtsTable extends Migration
         Schema::create('qts', function (Blueprint $table) {
             
             $table->bigIncrements('Qid');
-            $table->string('Item_name',255);
+            $table->string('Itemname',255);
             $table->bigInteger('Qty');
             $table->bigInteger('Price');
             $table->bigInteger('Total');

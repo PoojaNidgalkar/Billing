@@ -31,28 +31,24 @@
                   </div>
                   <input type="button" id="addmorePOIbutton" value="Add" onclick="insRow()"/>
 
-  <div id="POItablediv">
     <hr>
-    <table  class='table table-sm table-responsive ' id="POITable">
+    <table  class='table table-sm table-responsive' id="POITable">
         <tr>
-            <th>Item name</th>
+            <th>Itemname</th>
             <th>Qty</th>
             <th>Price</th>
             <th>Tax</th>
             <th>Total</th>
             <th>Delete</th>
         </tr>
-        <tr>               
-                <td><input type="text" id="Item name"/></td>
-                <td><input type="text" id="Qty"></td>
-                <td><input type="text" id="Price"/></td>
-                <td><input type="text" id="Tax"></td>
-                <td><input  type="text" id="Total"/></td>
-               
-        
-            <td>
-                <input type="button" id="delPOIbutton" value="Delete" onclick="deleteRow(this)"/>
-            </td>
+      
+        <tr>     
+          <td><input type="text" id="name" ></td>
+          <td><input type="text" id="Qty"></td>
+          <td><input type="text" id="Price"/></td>
+          <td><input type="text" id="Tax"></td>
+          <td><input  type="text" id="Total"/></td>
+          <td><input type="button" id="delPOIbutton" value="Delete" onclick="deleteRow(this)"/></td>
         </tr>
     </table>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>

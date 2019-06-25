@@ -27,25 +27,15 @@
            </tr> 
        </thead>
        <tbody>
-    @foreach($Quotes as $quo)
-
-        <tr>
-            <td>{{ $quo->Qid}}</td>
+       </tr>
+       @foreach($qoutes as $quo)
+       <tr>
+       <td>{{ $quo->qid}}</td>
             <td>{{ $quo->Itemname }}</td>
-            <td>{{ $quo->total }}</td>
-            
-            <td><a href="{{route('quotes.show', $quo)}}" class="btn">Show</a></td>
-            <td><a href="{{route('quotes.edit', $quo)}}" class="btn">edit</a></td>
-            
-            <td>
-                       <form action="{{route('quotes.destroy', $quo)}}" method="POST"></a>
-                       {{csrf_field()}}
-                       <input name="_method" type="hidden" value="DELETE">
-                       <button class="btn btn-danger" type="submit">Delete</button>
-            </td>
-          </form>
-        </table>
-     @endforeach
+            <td>{{ $quo->Total }}</td>
+            </tr>   
+       @endforeach
+
     </body>
     </html>
 

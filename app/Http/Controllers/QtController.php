@@ -17,9 +17,10 @@ class QtController extends Controller
     
     public function index()
     {
-        $qt = Qt::with('clients');
-        return view('Qtindex')->with('qt','clients');
+        $qoutes = Qt::all();
+        return view('Qtindex', compact(['qoutes','clients']));
 
+      
         
     }
 
@@ -32,7 +33,7 @@ class QtController extends Controller
     {
         $clients=Client::all();
         $Qts=qt::all();
-        return view('Qtcreate',compact(['qt','clients']));
+        return view('Qtcreate',compact(['qt','clients','quotes']));
     }
 
 
@@ -44,9 +45,18 @@ class QtController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request->all());
-        $Qt=qt::create($request->all());
-       return redirect()->route('quotes.Qtcreate','quotes.Qtindex');
+        $qt = new Qt();
+        $qt->client_id  = $request->id;
+        $qt->Itemname = $request->Itemname;
+        $qt->Qty = $request->Qty;
+        $qt->Price = $request->Price;
+        $qt->Tax = $request->Tax;
+        $qt->Total = $request->Total;
+        $qt->save();
+        //dd($qt);
+         
+    return redirect()->route('index');
+      
     }
     
    
@@ -58,11 +68,11 @@ class QtController extends Controller
      */
     public function show(qt $qt)
     {
-        $clients = client::all();
-    $Qts = qt::all();
+        $clients = Client::all();
+    $qoutes = qt::all();
    
-
-    return view('Qtindex', compact('clients', 'qt'));
+        dd($qoutes);
+    return view('Qtindex', compact('clients', 'qoutes'));
     }
 
     /**

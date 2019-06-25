@@ -42,10 +42,7 @@ Route::post('views/editt','ClientController@editt');
 
 Route::resource('quotes', 'QtController');
 
-Route::get('quotes', function(){
-    return view('quotes');
-});
-Route::get('/quotes', 'QtController@quotes');
+Route::GET('quotes', 'QtController@index')->name('index');
 
 
 
@@ -71,3 +68,6 @@ Route::get('/quotes', 'QtController@quotes');
 
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

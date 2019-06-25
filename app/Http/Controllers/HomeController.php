@@ -25,19 +25,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function welcome(Request $request)
-    {
-        return view('welcome');
-    }
-    public function clients(Request $request)
-    {
-        return view('client');
-    }
-    public function Qtcreate(Request $request)
-    {
-        return view('Qtcreate');
-    }
-
-    
-   
 }

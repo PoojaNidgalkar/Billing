@@ -45,6 +45,7 @@ Route::resource('quotes', 'QtController');
 Route::get('quotes', function(){
     return view('quotes');
 });
+Route::get('/quotes', 'QtController@quotes');
 
 
 
@@ -70,19 +71,3 @@ Route::get('quotes', function(){
 
 
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

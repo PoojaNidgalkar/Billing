@@ -44,7 +44,7 @@ class QtController extends Controller
      */
     public function store(Request $request)
     {
-       dd($request->all());
+       // dd($request->all());
         $Qt=qt::create($request->all());
        return redirect()->route('quotes.Qtcreate','quotes.Qtindex');
     }
@@ -98,9 +98,10 @@ class QtController extends Controller
     {
         //
     }
-    public function Qtcreate(Request $request)
+    public function quotes(Request $request)
     {
-        return view('Qtcreate');
+        return view('quotes');
     }
+
 
 }

@@ -43,11 +43,12 @@
         </tr>
       
         <tr>     
-          <td><input type="text" id="name" ></td>
-          <td><input type="text" id="Qty"></td>
-          <td><input type="text" id="Price"/></td>
-          <td><input type="text" id="Tax"></td>
-          <td><input  type="text" id="Total"/></td>
+
+          <td><input type="text" name="Itemname" id="name" ></td>
+          <td><input type="text" name="Qty" id="Qty"></td>
+          <td><input type="text" name="Price" id="Price"/></td>
+          <td><input type="text" name="Tax" id="Tax"></td>
+          <td><input  type="text" name="Total" id="Total"/></td>
           <td><input type="button" id="delPOIbutton" value="Delete" onclick="deleteRow(this)"/></td>
         </tr>
     </table>

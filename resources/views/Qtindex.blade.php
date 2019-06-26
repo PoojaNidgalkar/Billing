@@ -30,10 +30,15 @@
        </tr>
        @foreach($qoutes as $quo)
        <tr>
-       <td>{{ $quo->qid}}</td>
+            <td>{{ $quo->Qid}}</td>
             <td>{{ $quo->Itemname }}</td>
             <td>{{ $quo->Total }}</td>
-            </tr>   
+            <td><a href="{{route('Qtshow', $quo)}}" class="btn">Show</a></td>
+            <td><a href="{{route('Qtedit', $quo)}}" class="btn">edit</a></td>
+
+           <td>
+           <a href='quotes/create'>Generate bill</a>
+         </td>  
        @endforeach
 
     </body>

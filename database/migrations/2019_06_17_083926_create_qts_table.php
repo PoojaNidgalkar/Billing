@@ -14,6 +14,7 @@ class CreateQtsTable extends Migration
     public function up()
     {
         Schema::create('qts', function (Blueprint $table) {
+            $table->Increments('Qid');
             $table->string('Itemname');
             $table->bigInteger('Qty');
             $table->bigInteger('Price');

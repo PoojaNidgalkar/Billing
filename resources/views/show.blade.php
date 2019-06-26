@@ -11,12 +11,11 @@
   </thead>
   <tbody>
     <tr>
-      <td> {{$client->Cid}}</td>
-   <td>{{$client->name}}</td>
-    <td>{{$client->address}}</td>
-    <td>{{$client->contact}}</td>
+      <td>{{$client->Cid}}</td>
+      <td>{{$client->name}}</td>
+      <td>{{$client->address}}</td>
+      <td>{{$client->contact}}</td>
     </tr>
-    
   </tbody>
 </table>
 </form>

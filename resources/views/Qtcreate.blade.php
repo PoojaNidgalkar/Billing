@@ -34,6 +34,7 @@
     <hr>
     <table  class='table table-sm table-responsive' id="POITable">
         <tr>
+            
             <th>Itemname</th>
             <th>Qty</th>
             <th>Price</th>
@@ -43,7 +44,7 @@
         </tr>
       
         <tr>     
-
+          
           <td><input type="text" name="Itemname" id="name" ></td>
           <td><input type="text" name="Qty" id="Qty"></td>
           <td><input type="text" name="Price" id="Price"/></td>

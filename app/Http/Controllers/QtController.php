@@ -18,9 +18,7 @@ class QtController extends Controller
     public function index()
     {
         $qoutes = Qt::all();
-        return view('Qtindex', compact(['qoutes','clients']));
-
-      
+        return view('Qtindex', compact(['qoutes','clients']));       
         
     }
 
@@ -47,6 +45,7 @@ class QtController extends Controller
     {
         $qt = new Qt();
         $qt->client_id  = $request->id;
+        $qt->Qid = $request->Qid;
         $qt->Itemname = $request->Itemname;
         $qt->Qty = $request->Qty;
         $qt->Price = $request->Price;
@@ -56,7 +55,7 @@ class QtController extends Controller
         //dd($qt);
          
     return redirect()->route('index');
-      
+        
     }
     
    
@@ -67,12 +66,12 @@ class QtController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(qt $qt)
-    {
+    { 
         $clients = Client::all();
-    $qoutes = qt::all();
-   
-        dd($qoutes);
-    return view('Qtindex', compact('clients', 'qoutes'));
+        $qoutes = qt::all();
+
+    return view('Qtshow', compact('qoutes'));
+
     }
 
     /**
@@ -83,7 +82,7 @@ class QtController extends Controller
      */
     public function edit(qt $qt)
     {
-        //return view('Qtcreate')->with(compact('quote'));
+        return view('Qtcreate')->with(compact('quote'));
     }
 
     /**
@@ -113,5 +112,10 @@ class QtController extends Controller
         return view('quotes');
     }
 
+    public function read(Request $request)
+    {
+
+        return 'classes' => ClassResource::collection($this->whenLoaded('classes')->slice(0,3)),
+    }
 
 }

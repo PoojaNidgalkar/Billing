@@ -43,7 +43,7 @@ Route::post('views/editt','ClientController@editt');
 Route::resource('quotes', 'QtController');
 
 Route::GET('quotes', 'QtController@index')->name('index');
-Route::GET('/show/{id}', 'QtController@show')->name('Qtshow');
+Route::GET('/show/{qt}', 'QtController@show')->name('Qtshow');
 Route::GET('/edit/{id}', 'QtController@edit')->name('Qtedit');
 
 

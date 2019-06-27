@@ -69,8 +69,6 @@ function insRow()
     console.log( 'hi');
     var x=document.getElementById('POITable');
     var new_row = x.rows[1].cloneNode(true);
-    // var len = x.rows.length;
-    // new_row.cells[0].innerHTML = len;
     x.appendChild( new_row );
 }
   </script>

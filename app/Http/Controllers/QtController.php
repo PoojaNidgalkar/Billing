@@ -52,7 +52,7 @@ class QtController extends Controller
         $qt->Tax = $request->Tax;
         $qt->Total = $request->Total;
         $qt->save();
-        //dd($qt);
+       //dd($qt);
          
     return redirect()->route('index');
         
@@ -67,11 +67,7 @@ class QtController extends Controller
      */
     public function show(qt $qt)
     { 
-        $clients = Client::all();
-        $qoutes = qt::all();
-
-    return view('Qtshow', compact('qoutes'));
-
+       return view('Qtshow', compact(['qt']));
     }
 
     /**
@@ -110,12 +106,6 @@ class QtController extends Controller
     public function quotes(Request $request)
     {
         return view('quotes');
-    }
-
-    public function read(Request $request)
-    {
-
-        return 'classes' => ClassResource::collection($this->whenLoaded('classes')->slice(0,3)),
     }
 
 }

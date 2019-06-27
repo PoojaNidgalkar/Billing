@@ -78,7 +78,7 @@ class QtController extends Controller
      */
     public function edit(qt $qt)
     {
-        return view('Qtcreate')->with(compact('quote'));
+        return view('Qtedit')->with(compact('qt'));
     }
 
     /**
@@ -90,7 +90,29 @@ class QtController extends Controller
      */
     public function update(Request $request, qt $qt)
     {
-        //
+         //Validate
+        $request->validate([
+            'Itemname' => 'required',
+            'Qty' => 'required',
+            'Price' => 'required',
+            'Tax' => 'required',
+            'Total' => 'required',
+            'GrandTotal' => 'required',
+
+        ]);
+        
+        $qt->Itemname = $request->Itemname;
+        $qt->Qty= $request->Qty;
+        $qt->Price = $request->Price;
+        $qt->Tax = $request->Tax;
+        $qt->Total= $request->Total;
+        $qt->GrandTotal = $request->GrandTotal;
+
+        $qt->save();
+
+        $request->session()->flash('message', 'Successfully modified the qoute!');
+
+        return redirect('quotes');
     }
 
     /**

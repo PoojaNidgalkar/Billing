@@ -10,7 +10,5 @@ class qt extends Model
     protected $primaryKey = 'Qid';
 
     protected $fillable = ['Itemname','Quantity','Price','Tax','Total','created_at', 'updated_at'];
-    public function Total() {
-        return $this->buyDetails()->sum(DB::raw('Quantity * Price + Tax'));
-      }
+   
 }

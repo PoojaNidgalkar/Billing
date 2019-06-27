@@ -30,6 +30,7 @@
                     </div>
                   </div>
                   <input type="button" id="addmorePOIbutton" value="Add" onclick="insRow()"/>
+                  
 
     <hr>
     <table  class='table table-sm table-responsive' id="POITable">

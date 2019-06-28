@@ -10,6 +10,7 @@
       <th scope="col">PRICE</th>
       <th scope="col">TAX</th>
       <th scope="col">TOTAL</th>
+      <th scope="col">GRANDTOTAL</th>
     </tr>
   </thead>
 
@@ -21,6 +22,7 @@
       <td>{{$qt->Price}}</td>
       <td>{{$qt->Tax}}</td>
       <td>{{$qt->Total}}</td>
+      <td>{{$qt->Grandtotal}}</td>
 
     </tr>
   </tbody>

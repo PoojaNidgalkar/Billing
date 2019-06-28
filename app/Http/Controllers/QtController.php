@@ -51,6 +51,7 @@ class QtController extends Controller
         $qt->Price = $request->Price;
         $qt->Tax = $request->Tax;
         $qt->Total = $request->Total;
+        $qt->Grandtotal = $request->Grandtotal;
         $qt->save();
        //dd($qt);
          
@@ -78,7 +79,7 @@ class QtController extends Controller
      */
     public function edit(qt $qt)
     {
-        return view('Qtedit')->with(compact('qt'));
+        return view('Qtedit', compact(['qt']));
     }
 
     /**
@@ -90,26 +91,25 @@ class QtController extends Controller
      */
     public function update(Request $request, qt $qt)
     {
+       
          //Validate
-        $request->validate([
+        $this->validate($request,[
             'Itemname' => 'required',
             'Qty' => 'required',
             'Price' => 'required',
             'Tax' => 'required',
             'Total' => 'required',
-            'GrandTotal' => 'required',
-
-        ]);
+            'Grandtotal' => 'required',
+             ]);
         
-        $qt->Itemname = $request->Itemname;
-        $qt->Qty= $request->Qty;
-        $qt->Price = $request->Price;
-        $qt->Tax = $request->Tax;
-        $qt->Total= $request->Total;
-        $qt->GrandTotal = $request->GrandTotal;
-
+        $qt=Qt::find($id);
+        $qt->Itemname = $request->input('Itemname');
+        $qt->Qty= $request->input('Qty');
+        $qt->Price = $request->input('Price');
+        $qt->Tax = $request->input('Tax');
+        $qt->Total= $request->input('Total');
+        $qt->Grandtotal = $request->input('Grandtotal');
         $qt->save();
-
         $request->session()->flash('message', 'Successfully modified the qoute!');
 
         return redirect('quotes');

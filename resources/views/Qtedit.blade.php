@@ -17,10 +17,13 @@
 
 <h1><u>Edit Page:</u> Qoute ID- {{ $qt->Qid }}</h1>
 
+
+
+
 <div class="container">
-  <form method="POST" action="{{route('quotes.update', $qt)}}">
+  <form method="GET" action="{{route('quotes.update', $qt)}}">
       {{csrf_field()}}
-       <input name="_method" type="hidden" value="PATCH">
+       <input name="_method" type="hidden" value="PUT">
 
      <div class="form-group row">   
       <label for="name" class="col-sm-2 col-form-label col-form-label-lg">Itemname</label>
@@ -34,7 +37,7 @@
     <label for="name" class="col-sm-2 col-form-label col-form-label-lg">Quantity</label>
       <div class="col-sm-10">
         <input type="text" placeholder="Quantity" 
-        name="name" value={{$qt->Qty}}>
+        name="Quantity" value={{$qt->Qty}}>
       </div>
     </div>
 
@@ -42,7 +45,7 @@
     <label for="name" class="col-sm-2 col-form-label col-form-label-lg">Price</label>
       <div class="col-sm-10">
         <input type="text" placeholder="Price" 
-        name="name" value={{$qt->Price}}>
+        name="Price" value={{$qt->Price}}>
       </div>
     </div>
 
@@ -50,7 +53,7 @@
     <label for="name" class="col-sm-2 col-form-label col-form-label-lg">Tax</label>
       <div class="col-sm-10">
         <input type="text" placeholder="Tax" 
-        name="name" value={{$qt->Tax}}>
+        name="Tax" value={{$qt->Tax}}>
       </div>
     </div>
 
@@ -58,7 +61,7 @@
     <label for="name" class="col-sm-2 col-form-label col-form-label-lg">Total</label>
       <div class="col-sm-10">
         <input type="text" placeholder="Total" 
-        name="name" value={{$qt->Total}}>
+        name="Total" value={{$qt->Total}}>
       </div>
     </div>
 
@@ -66,7 +69,7 @@
     <label for="name" class="col-sm-2 col-form-label col-form-label-lg">GrandTotal</label>
       <div class="col-sm-10">
         <input type="text" placeholder="Grandtotal" 
-        name="name" value={{$qt->GrandTotal}}>
+        name="GrandTotal" value={{$qt->Grandtotal}}>
       </div>
     </div>
 

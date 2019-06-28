@@ -20,6 +20,7 @@ class CreateQtsTable extends Migration
             $table->bigInteger('Price');
             $table->bigInteger('Tax');
             $table->bigInteger('Total');
+            $table->bigInteger('Grandtotal');         
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('Cid')->on('client');
             $table->timestamps();

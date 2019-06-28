@@ -76,8 +76,8 @@ function insRow()
 <hr>
 <div class="form-row">
         <div class="form-group col-md-6">
-          <label>GrandTotal</label>
-          <input type="text" name="" id="">          
+          <label>Grandtotal</label>
+          <input type="text" name="Grandtotal" id="Grandtotal">          
         </div>
       </div>
       <div class="form-row">

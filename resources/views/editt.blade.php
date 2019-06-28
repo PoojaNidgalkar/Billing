@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-
+<hr>
 <nav class="navbar navbar-inverse">
     
     <ul class="nav navbar-nav">
@@ -21,6 +21,8 @@
   <form method="POST" action="{{route('clients.update', $client)}}">
       {{csrf_field()}}
        <input name="_method" type="hidden" value="PATCH">
+
+       <div class="form-group row">
       <label for="name" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
       <div class="col-sm-10">
         <input type="text" placeholder="name" 

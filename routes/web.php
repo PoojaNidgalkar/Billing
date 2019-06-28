@@ -46,6 +46,7 @@ Route::GET('quotes', 'QtController@index')->name('index');
 Route::GET('/show/{qt}', 'QtController@show')->name('Qtshow');
 Route::GET('/edit/{qt}', 'QtController@edit')->name('Qtedit');
 
+Route::resource('bills', 'BillController');
 
 
 

@@ -91,7 +91,7 @@ class QtController extends Controller
      */
     public function update(Request $request, qt $qt)
     {
-       
+  
          //Validate
         $this->validate($request,[
             'Itemname' => 'required',

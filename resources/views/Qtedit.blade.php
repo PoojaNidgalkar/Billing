@@ -21,7 +21,7 @@
 
 
 <div class="container">
-  <form method="GET" action="{{route('quotes.update', $qt)}}">
+  <form method="POST" action="{{route('quotes.update', $qt)}}">
       {{csrf_field()}}
        <input name="_method" type="hidden" value="PUT">
 

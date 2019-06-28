@@ -43,7 +43,7 @@
             </td>
 </form>
            <td>
-           <a href='quotes/create'>Generate bill</a>
+           <a href='bills/create'>Generate bill</a>
          </td>  
        @endforeach
 

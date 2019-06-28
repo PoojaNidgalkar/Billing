@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientsTable extends Migration
+class CreateBillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
-            $table->bigIncrements('Cid');
-            $table->string('client name', 32);
-            $table->string('phone');
-            $table->string('email', 320);
-            $table->string('password', 64);
-            $table->string('GSTIN No', 30);
-
+        Schema::create('bills', function (Blueprint $table) {
+            $table->bigIncrements('Bid');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('Cid')->on('client');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('bills');
     }
 }

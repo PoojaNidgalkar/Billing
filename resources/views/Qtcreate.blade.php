@@ -51,33 +51,59 @@
           <td><input type="text" name="Price" id="Price"/></td>
           <td><input type="text" name="Tax" id="Tax"></td>
           <td><input  type="text" name="Total" id="Total"/></td>
+         
           <td><input type="button" id="delPOIbutton" value="Delete" onclick="deleteRow(this)"/></td>
         </tr>
     </table>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <script>
-    function deleteRow(row)
+window.sumInputs = function() {
+    var inputs = document.getElementsByTagName('input'),
+        result = document.getElementById('Grandtotal'),
+        sum = 0;            
+    
+    for(var i=0; i<inputs.length; i++) {
+        var ip = inputs[i];
+    
+        if (ip.name && ip.name.indexOf("Grandtotal") < 0) {
+            sum += parseInt(ip.value) || 0;
+        }
+    
+    }
+    
+    result.value = sum;
+}
+
+function deleteRow(row)
 {
     var i=row.parentNode.parentNode.rowIndex;
     document.getElementById('POITable').deleteRow(i);
 }
 
-
 function insRow()
 {
     console.log( 'hi');
     var x=document.getElementById('POITable');
+   
     var new_row = x.rows[1].cloneNode(true);
     x.appendChild( new_row );
 }
-  </script>
+
+
+</script>
+
 <hr>
 <div class="form-row">
         <div class="form-group col-md-6">
-          <label>Grandtotal</label>
-          <input type="text" name="Grandtotal" id="Grandtotal">          
+       
+          
+           Grandtotal : <input type="text" name="Grandtotal" id="Grandtotal"/>
+
+<a href="javascript:sumInputs()">GrandTotal</a>         
         </div>
       </div>
       <div class="form-row">

@@ -40,13 +40,16 @@ Route::get('/welcome', 'HomeController@welcome');
 Route::resource('clients', 'ClientController');
 Route::post('views/editt','ClientController@editt');
 
-Route::resource('quotes', 'QtController');
 
+Route::resource('quotes', 'QtController');
 Route::GET('quotes', 'QtController@index')->name('index');
 Route::GET('/show/{qt}', 'QtController@show')->name('Qtshow');
 Route::GET('/edit/{qt}', 'QtController@edit')->name('Qtedit');
 
+
 Route::resource('bills', 'BillController');
+
+
 
 
 

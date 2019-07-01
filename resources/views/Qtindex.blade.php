@@ -44,6 +44,7 @@
 </form>
            <td>
            <a href='bills/create'>Generate bill</a>
+          
          </td>  
        @endforeach
 

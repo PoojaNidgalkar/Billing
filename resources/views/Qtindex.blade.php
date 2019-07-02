@@ -21,7 +21,9 @@
         <thead> 
           <tr> 
               <th>QId</th>
+              
               <th>ItemName</th>
+              
               <th>Total</th>
               <th colspan="3">Actions</th>
            </tr> 

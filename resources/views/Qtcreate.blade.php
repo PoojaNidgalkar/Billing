@@ -12,6 +12,7 @@
     
   </head>
   <body>
+ 
   <form method="post" action="{{ route('quotes.store')}}" accept-charset="UTF-8">
       @csrf
         <div class="container bg">
@@ -46,10 +47,10 @@
       
         <tr>     
           
-          <td><input type="text" name="Itemname" id="name" ></td>
+          <td><input type="text" name="Itemname" id="Itemname" ></td>
           <td><input type="text" name="Qty" id="Qty"></td>
           <td><input type="text" name="Price" id="Price"/></td>
-          <td><input type="text" name="Tax" id="Tax"></td>
+          <td><input type="text" name="Tax" onkeyup="add()" id="Tax"></td>
           <td><input  type="text" name="Total" id="Total"/></td>
          
           <td><input type="button" id="delPOIbutton" value="Delete" onclick="deleteRow(this)"/></td>
@@ -78,6 +79,8 @@ window.sumInputs = function() {
     result.value = sum;
 }
 
+
+
 function deleteRow(row)
 {
     var i=row.parentNode.parentNode.rowIndex;
@@ -96,14 +99,22 @@ function insRow()
 
 </script>
 
+<script>
+      function add(){
+      var a,b,c,d;
+      a=Number(document.getElementById("Price").value);
+      b=Number(document.getElementById("Qty").value);
+      c=Number(document.getElementById("Tax").value);
+      d= a * b* c/100 + a * b;
+      document.getElementById("Total").value= d;
+      }
+</script>
+
 <hr>
 <div class="form-row">
         <div class="form-group col-md-6">
-       
-          
-           Grandtotal : <input type="text" name="Grandtotal" id="Grandtotal"/>
-
-<a href="javascript:sumInputs()">GrandTotal</a>         
+       Grandtotal : <input type="text" name="Grandtotal" id="Grandtotal"/>
+       <a href="javascript:sumInputs()">GrandTotal</a>         
         </div>
       </div>
       <div class="form-row">
@@ -113,6 +124,7 @@ function insRow()
         </div>
       </div>
     </form>
+   
   </div>
   
 </body>

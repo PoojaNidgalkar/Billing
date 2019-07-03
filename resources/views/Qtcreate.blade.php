@@ -34,7 +34,7 @@
                   
 
     <hr>
-    <form method="post" action="Qtindex.php"> 
+    
     <table  class='table table-sm table-responsive' id="POITable">
         <tr>
             
@@ -57,7 +57,6 @@
           <td><input type="button" id="delPOIbutton" value="Delete" onclick="deleteRow(this)"/></td>
         </tr>
     </table>
-    </form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

@@ -23,7 +23,7 @@
 <div class="container">
   <form method="POST" action="{{route('quotes.update', $qt)}}">
       {{csrf_field()}}
-       <input name="_method" type="hidden" value="PUT">
+       <input name="_method" type="hidden" value="PATCH">
 
      <div class="form-group row">   
       <label for="name" class="col-sm-2 col-form-label col-form-label-lg">Itemname</label>

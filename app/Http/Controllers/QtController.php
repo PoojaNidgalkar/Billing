@@ -93,7 +93,7 @@ class QtController extends Controller
     {
   
          //Validate
-        $this->validate($request,[
+       $request->validate([
             'Itemname' => 'required',
             'Qty' => 'required',
             'Price' => 'required',
@@ -102,13 +102,12 @@ class QtController extends Controller
             'Grandtotal' => 'required',
              ]);
         
-        $qt=Qt::find($id);
-        $qt->Itemname = $request->input('Itemname');
-        $qt->Qty= $request->input('Qty');
-        $qt->Price = $request->input('Price');
-        $qt->Tax = $request->input('Tax');
-        $qt->Total= $request->input('Total');
-        $qt->Grandtotal = $request->input('Grandtotal');
+        $qt->Itemname = $request->Itemname;
+        $qt->Qty= $request->Qty;
+        $qt->Price = $request->Price;
+        $qt->Tax = $request->Tax;
+        $qt->Total= $request->Total;
+        $qt->Grandtotal = $request->Grandtotal;
         $qt->save();
         $request->session()->flash('message', 'Successfully modified the qoute!');
 

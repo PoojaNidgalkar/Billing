@@ -17,9 +17,6 @@
 
 <h1><u>Edit Page:</u> Qoute ID- {{ $qt->Qid }}</h1>
 
-
-
-
 <div class="container">
   <form method="POST" action="{{route('quotes.update', $qt)}}">
       {{csrf_field()}}
@@ -80,5 +77,16 @@
   </form>
 </div>
 
+<script>
+      function add(){
+      var a,b,c,d;
+      a=Number(document.getElementById("Price").value);
+      b=Number(document.getElementById("Qty").value);
+      c=Number(document.getElementById("Tax").value);
+      d= a * b* c/100 + a * b;
+      document.getElementById("Total").value= d;
+      document.getElementById('GrandTotal').value = document.getElementById('Total').value;
+    }
+</script>
 </body>
 </html>

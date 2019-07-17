@@ -35,14 +35,15 @@
             <td>{{ $quo->Qid}}</td>
             <td>{{ $quo->Itemname }}</td>
             <td>{{ $quo->Total }}</td>
-            <td><a href="{{route('Qtshow', $quo)}}" class="btn">Show</a></td>
-            <td><a href="{{route('Qtedit', $quo)}}" class="btn">edit</a></td>
+            <td><a class="btn btn-primary" href="{{route('Qtshow', $quo)}}" class="btn">Show</a></td>
+            <td><a class="btn btn-secondary" href="{{route('Qtedit', $quo)}}" class="btn">edit</a></td>
             <td>
                        <form action="{{route('quotes.destroy', $quo)}}" method="POST"></a>
                        {{csrf_field()}}
                        <input name="_method" type="hidden" value="DELETE">
                        <button class="btn btn-danger" type="submit">Delete</button>
             </td>
+           
 </form>
            <td>
            <a href='bills/create'>Generate bill</a>

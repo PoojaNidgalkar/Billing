@@ -37,7 +37,8 @@
 
            <td>
            <a href='quotes/create'>Generate Quote</a>
-         </td>
+           </td>
+           
         
         
           </form>

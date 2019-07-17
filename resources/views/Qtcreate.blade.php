@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>New quote</title>
-    <link rel="stylesheet" href="/home/pooja/Desktop/billing/css/dup.css" type="text/css">
-    <link rel="stylesheet" href="/home/pooja/Desktop/billing/css/billll.css" type="text/css">
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<html>
+<head>
+<title>MULTIPLE DATA SEND</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 
-    
-  </head>
-  <body>
- 
-  <form method="post" action="{{ route('quotes.store')}}" accept-charset="UTF-8">
-      @csrf
-        <div class="container bg">
-                <div class="bg-info">
-                  <h1 class="text-center text-dark display-4 mt-4"><u> New Quote</u></h1>
-                </div>
-                <form>   
+</head>
+<body>
+<div class="container">
+<form>   
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label>Name</label>
@@ -30,106 +21,107 @@
                       </select>
                     </div>
                   </div>
-                  <input type="button" id="addmorePOIbutton" value="Add" onclick="insRow()"/>
-                  
+</form>
+</div>
 
-    <hr>
-    
-    <table  class='table table-sm table-responsive' id="POITable">
-        <tr>
-            
-            <th>Itemname</th>
-            <th>Qty</th>
+<br> <br>
+<div class="container">
+<div class="panel panel-footer"> 
+<table class="table table-bordered">
+<thead>
+<tr> 
+            <th>ItemName</th>
+            <th>Quantity</th>
             <th>Price</th>
             <th>Tax</th>
             <th>Total</th>
-            <th>Delete</th>
-        </tr>
-      
-        <tr>     
-          
-          <td><input type="text" name="Itemname" id="Itemname" ></td>
-          <td><input type="text" name="Qty" id="Qty"></td>
-          <td><input type="text" name="Price" id="Price"/></td>
-          <td><input type="text" name="Tax" onkeyup="add()" id="Tax"></td>
-          <td><input  type="text" name="Total" id="Total"/></td>
-         
-          <td><input type="button" id="delPOIbutton" value="Delete" onclick="deleteRow(this)"/></td>
-        </tr>
-    </table>
+            <th><a href="#" class="addRow"> <i class="glyphicon glyphicon-plus"> </i> </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <input type="text" name="item_name[]" class="form-control" required=""> </td>
+<td> <input type="text" name="quantity[]" class="form-control quantity" required=""> </td>
+<td> <input type="text" name="price[]" class="form-control price" required=""> </td>
+<td> <input type="text" name="tax[]" class="form-control tax required="> </td>
+<td> <input type="text" name="total[]" class="form-control total"> </td>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<td> <a href="#" class="btn btn-danger remove">
+     <i class="glyphicon glyphicon-remove"> </i> </a> </td> 
+</tr>
+</tbody>
+<tfoot> 
+<tr>
+            <td style="border : none"></td>
+            <td style="border : none"></td>
+            <td style="border : none"></td>
+           
+            <td>GrandTotal</td>
+            <td><b class="Grandtotal"></b>
+            <td style="border : none"></td>
+            <input type="submit" name="" value="submit" class="btn btn-success"></td>
+</tr>
+</tfoot>
+</div>
+</div>
 
-<script>
-window.sumInputs = function() {
-    var inputs = document.getElementsByName('Total'),
-        result = document.getElementById('Grandtotal'),
-        sum = 0;            
-    
-    for(var i=0; i<inputs.length; i++) {
-        var ip = inputs[i];
-    
-        if (ip.name && ip.name.indexOf("Grandtotal") < 0) {
-            sum += parseInt(ip.value) || 0;
-        }
-    
-    }
-    
-    result.value = sum;
+
+ <script type="text/javascript">
+ $('tbody').delegate('.quantity,.price,.tax','keyup',
+ function(){
+            var tr=$(this).parent().parent();
+            var a=tr.find('.quantity').val();
+            var b=tr.find('.price').val();
+            var c=tr.find('.tax').val(); 
+            var total=(a * b* c/100 + a * b);
+            tr.find('.total').val(total); 
+            Grandtotal();  
+ });
+ function Grandtotal(){
+   var Grandtotal=0;
+   $('.total').each(function(i,e){
+     var total=$(this).val()-0;
+     Grandtotal+=total;
+   });
+   $('.Grandtotal').html(Grandtotal);
 }
 
+$('.addRow').on('click',function()
+ {
+   addRow();
 
+ });
+ function addRow()
+ {
+   var tr='<tr>'+
+   '<td> <input type="text" name="item_name[]" class="form-control" required=""> </td>'+
+   '<td> <input type="text" name="quantity[]" class="form-control quantity" required=""> </td>'+
+'<td><input type="text" name="price[]" class="form-control price" required=""> </td>'+
+'<td> <input type="text" name="tax[]" class="form-control tax required="> </td>'+
+'<td>  <input type="text" name="total[]" class="form-control total"> </td>'+
+'<td> <a href="#" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove"></i> </a> </td>'+
+'</tr>';
 
-function deleteRow(row)
-{
-    var i=row.parentNode.parentNode.rowIndex;
-    document.getElementById('POITable').deleteRow(i);
-}
+ $('tbody').append(tr);
+ };
+ 
+ $('.remove').live('click',function()
+ {
+   var last=$('tbody tr').length;
+ 
+   if(last==1)
+   {
+     alert("u can't delete last row");
+   }
+   else{
+          $(this).parent().parent().remove();
+   }
+ });
+ </script>
 
-function insRow()
-{
-    console.log( 'hi');
-    var x=document.getElementById('POITable');
-   
-    var new_row = x.rows[1].cloneNode(true);
-    x.appendChild( new_row );
-}
-
-
-</script>
-
-<script>
-      function add(){
-      var a,b,c,d;
-      a=Number(document.getElementById("Price").value);
-      b=Number(document.getElementById("Qty").value);
-      c=Number(document.getElementById("Tax").value);
-      d= a * b* c/100 + a * b;
-      document.getElementById("Total").value= d;
-      }
-</script>
-
-<hr>
-<div class="form-row">
-        <div class="form-group col-md-6">
-        <input type="text" name="Grandtotal" id="Grandtotal"/>
-       <a href="javascript:sumInputs()">GrandTotal</a>         
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-
-          <button type="submit" class="btn btn-success btn-lg" role="button">Submit Quote</a>
-        </div>
-      </div>
-    </form>
-   
-  </div>
-  
 </body>
 </html>
+
 
 
            

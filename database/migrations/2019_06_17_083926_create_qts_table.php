@@ -14,20 +14,20 @@ class CreateQtsTable extends Migration
     public function up()
     {
         Schema::create('qts', function (Blueprint $table) {
+
+       
             $table->Increments('Qid');
-            $table->string('Itemname');
-            $table->bigInteger('Qty');
-            $table->bigInteger('Price');
-            $table->bigInteger('Tax');
-            $table->bigInteger('Total');
+            $table->string('Item_name');
+            $table->bigInteger('quantity');
+            $table->bigInteger('price');
+            $table->bigInteger('tax');
+            $table->bigInteger('total');
             $table->bigInteger('Grandtotal');         
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('Cid')->on('client');
             $table->timestamps();
-
         });
-    }
-
+        }
     /**
      * Reverse the migrations.
      *

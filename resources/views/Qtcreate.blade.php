@@ -10,7 +10,10 @@
 </head>
 <body>
 <div class="container">
-<form>   
+<br>
+
+<form method="post" action="/quotes" accept-charset="UTF-8">
+{{csrf_field()}}   
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label>Name</label>
@@ -21,8 +24,9 @@
                       </select>
                     </div>
                   </div>
-</form>
+
 </div>
+
 
 <br> <br>
 <div class="container">
@@ -43,8 +47,9 @@
 <td> <input type="text" name="item_name[]" class="form-control" required=""> </td>
 <td> <input type="text" name="quantity[]" class="form-control quantity" required=""> </td>
 <td> <input type="text" name="price[]" class="form-control price" required=""> </td>
-<td> <input type="text" name="tax[]" class="form-control tax required="> </td>
+<td> <input type="text" name="tax[]" class="form-control tax" required=""> </td>
 <td> <input type="text" name="total[]" class="form-control total"> </td>
+
 
 <td> <a href="#" class="btn btn-danger remove">
      <i class="glyphicon glyphicon-remove"> </i> </a> </td> 
@@ -57,14 +62,15 @@
             <td style="border : none"></td>
            
             <td>GrandTotal</td>
-            <td><b class="Grandtotal"></b>
+            <td><b class="form-control Grandtotal" name="Grandtotal[]"> </b> </td>
             <td style="border : none"></td>
             <input type="submit" name="" value="submit" class="btn btn-success"></td>
 </tr>
 </tfoot>
 </div>
 </div>
-
+</form>
+</div>
 
  <script type="text/javascript">
  $('tbody').delegate('.quantity,.price,.tax','keyup',
@@ -113,8 +119,10 @@ $('.addRow').on('click',function()
    {
      alert("u can't delete last row");
    }
-   else{
+   else
+   {
           $(this).parent().parent().remove();
+          
    }
  });
  </script>

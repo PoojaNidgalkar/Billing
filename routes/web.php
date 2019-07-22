@@ -41,7 +41,10 @@ Route::resource('clients', 'ClientController');
 Route::post('views/editt','ClientController@editt');
 
 
+
+
 Route::resource('quotes', 'QtController');
+Route::post('/quotes','QtController@store');
 
 
 

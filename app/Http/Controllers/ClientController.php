@@ -17,7 +17,7 @@ class ClientController extends Controller
         $Clients = Client::all();
         // dd($Clients);
   
-        return view('indexx', compact(['Clients']));
+        return view('indexx',compact(['Clients']));
     }
 
     /**

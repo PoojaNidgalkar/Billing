@@ -33,8 +33,8 @@
        @foreach($qoutes as $quo)
        <tr>
             <td>{{ $quo->Qid}}</td>
-            <td>{{ $quo->Itemname }}</td>
-            <td>{{ $quo->Total }}</td>
+            <td>{{ $quo->item_name }}</td>
+            <td>{{ $quo->total }}</td>
             <td><a class="btn btn-primary" href="{{route('Qtshow', $quo)}}" class="btn">Show</a></td>
             <td><a class="btn btn-secondary" href="{{route('Qtedit', $quo)}}" class="btn">edit</a></td>
             <td>

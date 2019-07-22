@@ -10,4 +10,8 @@ class Client extends Model
     protected $primaryKey = 'Cid';
     protected $fillable = ['name', 'address', 'contact', 'created_at', 'updated_at' ]; 
     
+    public function qts()
+    {
+    	return $this->hasMany(qt::class);
+    }
 }

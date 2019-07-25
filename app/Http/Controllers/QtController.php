@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
 use App\Client; 
 use App\qt;
-
 
 
 class QtController extends Controller
@@ -16,22 +18,26 @@ class QtController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+    public function index()
+    {
+      $qts = Qt::table('qts')->get();
+      return view('Qtindex', ['qts' => $qts]);
+    }
+
+
    public function create()
    {
-      
-    $clients=Client::all();
-    $Qts=qt::all();
-    return view('Qtcreate',compact(['qt','clients','quotes']));
+      $clients=Client::all();
+      $Qts=qt::all();
+     return view('Qtcreate',compact(['qt','clients','quotes']));
+     
    }
 
    public function store(Request $request)
    {
-    //dd($request->all());
-          foreach($request->item_name as $qt=>$v)
+         foreach($request->item_name as $qt=>$v)
           {
              $data=array(
-            
             'item_name'=>$request->item_name[$qt],
             'quantity'=>$request->quantity[$qt],
             'price'=>$request->price[$qt],
@@ -39,20 +45,15 @@ class QtController extends Controller
             'total'=>$request->total[$qt],
             'Grandtotal'=>$request->Grandtotal[$qt]
           );
+            //dd($request->all());
           Qt::insert($data);
          
-
-        }
+          }
         
-        return redirect()->back()->with('success','data insert successfully');
-      }
+          return redirect()->back()->with('success','data insert successfully');
+  }
     
-
-     
-    
-         
-      
-      /**
+     /**
      * Display the specified resource.
      *
      * @param  \App\Qt  $qt

@@ -56,13 +56,15 @@
 </tr>
 </tbody>
 <tfoot> 
+
 <tr>
             <td style="border : none"></td>
             <td style="border : none"></td>
             <td style="border : none"></td>
            
             <td>GrandTotal</td>
-            <td><b class="form-control Grandtotal" name="Grandtotal[]"> </b> </td>
+            <td> <b class="Grandtotal" name="Grandtotal[]"> </b> </td>
+            
             <td style="border : none"></td>
             <input type="submit" name="" value="submit" class="btn btn-success"></td>
 </tr>
@@ -117,7 +119,7 @@ $('.addRow').on('click',function()
  
    if(last==1)
    {
-     alert("u can't delete last row");
+       alert("u can't delete last row");
    }
    else
    {

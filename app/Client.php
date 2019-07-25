@@ -8,10 +8,11 @@ class Client extends Model
 {
     protected $table = 'client';
     protected $primaryKey = 'Cid';
-    protected $fillable = ['name', 'address', 'contact', 'created_at', 'updated_at' ]; 
+    protected $fillable = ['name','address','contact','created_at','updated_at']; 
     
     public function qts()
     {
-    	return $this->hasMany(qt::class);
+    	return $this->hasMany('qts','Qid');
     }
+    
 }

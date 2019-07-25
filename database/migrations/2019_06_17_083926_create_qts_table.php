@@ -16,15 +16,17 @@ class CreateQtsTable extends Migration
         Schema::create('qts', function (Blueprint $table) {
 
        
-            $table->Increments('Qid');
-            $table->string('Item_name');
-            $table->bigInteger('quantity');
-            $table->bigInteger('price');
-            $table->bigInteger('tax');
-            $table->bigInteger('total');
-            $table->bigInteger('Grandtotal');         
-            $table->unsignedBigInteger('client_id');
+            $table->Increments('Qid')->nullable();
+            $table->string('item_name')->nullable();
+            $table->bigInteger('quantity')->nullable();
+            $table->bigInteger('price')->nullable();
+            $table->bigInteger('tax')->nullable();
+            $table->bigInteger('total')->nullable();
+            $table->bigInteger('Grandtotal')->nullable();
+
+            $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('Cid')->on('client');
+            
             $table->timestamps();
         });
         }
